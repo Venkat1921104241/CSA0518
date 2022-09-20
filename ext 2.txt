@@ -1,0 +1,50 @@
+mysql> desc department;
++---------+----------+------+-----+---------+-------+
+| Field   | Type     | Null | Key | Default | Extra |
++---------+----------+------+-----+---------+-------+
+| Depno   | int(10)  | NO   | PRI | 0       |       |
+| DepName | char(20) | YES  |     | NULL    |       |
+| DepHead | char(20) | YES  |     | NULL    |       |
++---------+----------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> desc course;
++------------+----------+------+-----+---------+-------+
+| Field      | Type     | Null | Key | Default | Extra |
++------------+----------+------+-----+---------+-------+
+| courseno   | int(10)  | NO   | PRI | 0       |       |
+| coursedesc | char(20) | YES  |     | NULL    |       |
+| coursetype | char(1)  | YES  |     | NULL    |       |
+| semno      | int(10)  | YES  |     | NULL    |       |
+| hallno     | int(10)  | YES  |     | NULL    |       |
+| facno      | int(10)  | YES  |     | NULL    |       |
++------------+----------+------+-----+---------+-------+
+6 rows in set (0.02 sec)
+
+mysql> desc faculty;
++----------+----------+------+-----+---------+-------+
+| Field    | Type     | Null | Key | Default | Extra |
++----------+----------+------+-----+---------+-------+
+| Facno    | int(10)  | NO   | PRI | 0       |       |
+| Facname  | char(15) | YES  |     | NULL    |       |
+| gender   | char(1)  | YES  |     | NULL    |       |
+| Dob      | int(10)  | YES  |     | NULL    |       |
+| Mobileno | int(10)  | YES  |     | NULL    |       |
+| Doj      | int(10)  | YES  |     | NULL    |       |
+| dapt     | char(10) | YES  |     | NULL    |       |
++----------+----------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> desc student;
++----------+----------+------+-----+---------+-------+
+| Field    | Type     | Null | Key | Default | Extra |
++----------+----------+------+-----+---------+-------+
+| Regno    | int(10)  | NO   | PRI | 0       |       |
+| Name     | char(20) | YES  |     | NULL    |       |
+| gender   | char(1)  | YES  |     | NULL    |       |
+| Dob      | int(10)  | YES  |     | NULL    |       |
+| mobileno | int(10)  | YES  |     | NULL    |       |
+| city     | char(10) | YES  |     | NULL    |       |
++----------+----------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
