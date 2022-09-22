@@ -1,0 +1,41 @@
+mysql> create table stu_progress(stu_NO int(10), Stu_Name varchar(30), Subject varchar(40), marks int(20)
+    -> );
+Query OK, 0 rows affected (0.21 sec)
+
+mysql> insert into stu_progress values(125, "Varu", "OS", 79);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into stu_progress values(122, "rindhi", "SE", 86);
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into stu_progress values(111, "swati", "DBMS", 98);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from stu_progress;
++--------+----------+----------------+-------+
+| stu_NO | Stu_Name | Subject        | marks |
++--------+----------+----------------+-------+
+|    125 | Varu    | OS       |    79 |
+|    122| rindhi   |SE   |    86 |
+|    111 | swati   | DBMS |    98 |
++--------+----------+----------------+-------+
+3 rows in set (0.00 sec)
+
+mysql> alter table stu_progress
+    -> add Stu_Dept varchar(50) ;
+Query OK, 3 rows affected (0.45 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> insert into stu_progress values(123, "mylu", "CNS", 89, "CSE");
+Query OK, 1 row affected (0.08 sec)
+
+mysql> select * from stu_progress;
++--------+----------+----------------+-------+----------+
+| stu_NO | Stu_Name | Subject        | marks | Stu_Dept |
++--------+----------+----------------+-------+----------+
+|    125 | varu    | OS      |    79 | NULL     |
+|    122 | rindhi    |SE          |    86 | NULL     |
+|    111 | swati   | DBMS |    98 | NULL     |
+|    123 | mylu   | CNS       |    89 | CSE     |
++--------+----------+----------------+-------+----------+
+4 rows in set (0.00 sec)

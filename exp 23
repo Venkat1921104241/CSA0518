@@ -1,0 +1,33 @@
+mysql> create table Hospital(P_NO int(10), P_Name varchar(30), Admitted_Date date, Discharge_Date date);
+Query OK, 0 rows affected (0.18 sec)
+
+mysql> insert into hospital values(241, "varu", "2021.7.03", "2021.09.22");
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into hospital values(275, "rindhi", "2016.1.15", "2018.4.10");
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into hospital values(753, "Swe", "2010.6.20", "2011.7.30");
+Query OK, 1 row affected (0.10 sec)
+
+mysql> select * from hospital;
++------+--------+---------------+----------------+
+| P_NO | P_Name | Admitted_Date | Discharge_Date |
++------+--------+---------------+----------------+
+|  241 | varu  | 2021-07-03    | 2021-09-22     |
+|  275 | rindhi  | 2016-01-15    | 2018-04-10     |
+|  753 | swe  | 2010-06-20    | 2011-07-30     |
++------+--------+---------------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> delete from hospital where P_no = 753;
+Query OK, 1 row affected (0.04 sec)
+
+mysql> select * from hospital;
++------+--------+---------------+----------------+
+| P_NO | P_Name | Admitted_Date | Discharge_Date |
++------+--------+---------------+----------------+
+|  241 | varu  | 2021-07-03    | 2021-09-22     |
+|  275 | rindhi  | 2016-01-15    | 2018-04-10     |
++------+--------+---------------+----------------+
+2 rows in set (0.00 sec)
