@@ -1,0 +1,45 @@
+mysql> create database customer;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use customer;
+Database changed
+mysql> create table customer (Id int(10), name char(20),salary int(10));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> insert into customer values(1,'ram',50000);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into customer values(2,'sam',60000);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into customer values(3,'raju',30000);
+Query OK, 1 row affected (0.02 sec)
+mysql> select * from customer;
++------+------+--------+
+| Id   | name | salary |
++------+------+--------+
+|    1 | ram  |  50000 |
+|    2 | sam  |  60000 |
+|    3 | raju |  30000 |
++------+------+--------+
+mysql> create view  customer_view as  select name,salary from customer;
+Query OK, 0 rows affected (0.04 sec)
+mysql> select*from customer_view;
++------+--------+
+| name | salary |
++------+--------+
+| ram  |  50000 |
+| sam  |  60000 |
+| raju |  30000 |
++------+--------+
+mysql> create index regno on customer(name);
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> show index from customer;
++----------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| Table    | Non_unique | Key_name | Seq_in_index | Column_name | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment |
++----------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| customer |          1 | regno    |            1 | name        | A         |           3 |     NULL | NULL   | YES  | BTREE      |         |               |
++----------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+1 row in set (0.03 sec)
