@@ -1,0 +1,58 @@
+mysql> use dataa;
+Database changed
+
+mysql> Delimiter //
+mysql> CREATE PROCEDURE While_Loop()
+    ->   BEGIN
+    ->  DECLARE A INT;
+    ->  DECLARE XYZ Varchar(50);
+    ->  SET A = 1;
+    ->  SET XYZ = '';
+    ->  WHILE A <=10 DO
+    ->  SET XYZ = CONCAT(XYZ,A,',');
+    ->  SET A = A + 1;
+    ->  END WHILE;
+    ->  SELECT XYZ;
+    ->  END //
+Query OK, 0 rows affected (0.57 sec)
+
+mysql> DELIMITER ;
+mysql> call While_Loop();
++-----------------------+
+| XYZ                   |
++-----------------------+
+| 1,2,3,4,5,6,7,8,9,10, |
++-----------------------+
+1 row in set (0.31 sec)
+
+Query OK, 0 rows affected (0.32 sec)
+
+mysql> DELIMITER $$
+mysql>
+mysql> CREATE PROCEDURE RepeatSample()
+    -> BEGIN
+    ->     DECLARE counter INT DEFAULT 1;
+    ->     DECLARE result VARCHAR(100) DEFAULT '';
+    ->
+    ->     REPEAT
+    ->         SET result = CONCAT(result,counter,',');
+    ->         SET counter = counter + 1;
+    ->     UNTIL counter >= 10
+    ->     END REPEAT;
+    ->
+    ->     -- display result
+    ->     SELECT result;
+    -> END$$
+Query OK, 0 rows affected (0.05 sec)
+
+mysql>
+mysql> DELIMITER ;
+mysql> CALL RepeatSample();
++--------------------+
+| result             |
++--------------------+
+| 1,2,3,4,5,6,7,8,9, |
++--------------------+
+1 row in set (0.08 sec)
+
+Query OK, 0 rows affected (0.09 sec)

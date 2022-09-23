@@ -1,0 +1,143 @@
+mysql> CREATE TABLE Players(
+    ->    ID INT,
+    ->    First_Name VARCHAR(255),
+    ->    Last_Name VARCHAR(255),
+    ->    Date_Of_Birth date,
+    ->    Place_Of_Birth VARCHAR(255),
+    ->    Country VARCHAR(255),
+    ->    PRIMARY KEY (ID)
+    -> );
+Query OK, 0 rows affected (0.16 sec)
+
+mysql> insert into Players values(1, 'Shikhar', 'Dhawan', DATE('1981-12-05'), 'Delhi', 'India');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into Players values(2, 'Jonathan', 'Trott', DATE('1981-04-22'), 'CapeTown', 'SouthAfrica');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into Players values(3, 'Kumara', 'Sangakkara', DATE('1977-10-27'), 'Matale', 'Srilanka');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into Players values(4, 'Virat', 'Kohli', DATE('1988-11-05'), 'Delhi', 'India');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into Players values(5, 'Rohit', 'Sharma', DATE('1987-04-30'), 'Nagpur', 'India');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into Players values(6, 'Ravindra', 'Jadeja', DATE('1988-12-06'), 'Nagpur', 'India');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into Players values(7, 'James', 'Anderson', DATE('1982-06-30'), 'Burnley', 'England');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> COMMIT;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> Delete from Players where id = 7;
+Query OK, 1 row affected (0.06 sec)
+
+mysql> SELECT * FROM Players;
++----+------------+------------+---------------+----------------+-------------+
+| ID | First_Name | Last_Name  | Date_Of_Birth | Place_Of_Birth | Country     |
++----+------------+------------+---------------+----------------+-------------+
+|  1 | subbu      | Dhawan     | 1981-12-05    | Delhi          | India       |
+|  2 | Jonathan   | Trott      | 1981-04-22    | CapeTown       | SouthAfrica |
+|  3 | Kumara     | Sangakkara | 1977-10-27    | Matale         | Srilanka    |
+|  4 | Virat      | Kohli      | 1988-11-05    | Delhi          | India       |
+|  5 | Rohit      | Sharma     | 1987-04-30    | Nagpur         | India       |
+|  6 | Ravindra   | Jadeja     | 1988-12-06    | Nagpur         | India       |
++----+------------+------------+---------------+----------------+-------------+
+6 rows in set (0.02 sec)
+
+mysql> Delete from Players where id = 6;
+Query OK, 1 row affected (0.04 sec)
+
+mysql> SELECT * FROM Players;
++----+------------+------------+---------------+----------------+-------------+
+| ID | First_Name | Last_Name  | Date_Of_Birth | Place_Of_Birth | Country     |
++----+------------+------------+---------------+----------------+-------------+
+|  1 | Subbu      | Dhawan     | 1981-12-05    | Delhi          | India       |
+|  2 | Jonathan   | Trott      | 1981-04-22    | CapeTown       | SouthAfrica |
+|  3 | Kumara     | Sangakkara | 1977-10-27    | Matale         | Srilanka    |
+|  4 | Virat      | Kohli      | 1988-11-05    | Delhi          | India       |
+|  5 | Rohit      | Sharma     | 1987-04-30    | Nagpur         | India       |
++----+------------+------------+---------------+----------------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> ROLLBACK;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SELECT * FROM Players;
++----+------------+------------+---------------+----------------+-------------+
+| ID | First_Name | Last_Name  | Date_Of_Birth | Place_Of_Birth | Country     |
++----+------------+------------+---------------+----------------+-------------+
+|  1 | Subbu      | Dhawan     | 1981-12-05    | Delhi          | India       |
+|  2 | Jonathan   | Trott      | 1981-04-22    | CapeTown       | SouthAfrica |
+|  3 | Kumara     | Sangakkara | 1977-10-27    | Matale         | Srilanka    |
+|  4 | Virat      | Kohli      | 1988-11-05    | Delhi          | India       |
+|  5 | Rohit      | Sharma     | 1987-04-30    | Nagpur         | India       |
+|  6 | Ravindra   | Jadeja     | 1988-12-06    | Nagpur         | India       |
++----+------------+------------+---------------+----------------+-------------+
+6 rows in set (0.00 sec)
+
+mysql> CREATE TABLE EMP(
+    ->    FIRST_NAME CHAR(20) NOT NULL,
+    ->    LAST_NAME CHAR(20),
+    ->    AGE INT,
+    ->    SEX CHAR(1),
+    ->    INCOME FLOAT);
+Query OK, 0 rows affected (0.13 sec)
+
+mysql> INSERT INTO EMP VALUES
+    ->    ('Krishna', 'Sharma', 19, 'M', 2000);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> INSERT INTO EMP VALUES
+    -> ('Raj', 'Kandukuri', 20, 'M', 7000);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> INSERT INTO EMP VALUES
+    -> ('Ramya', 'Ramapriya', 25, 'F', 5000)
+    -> ;
+Query OK, 1 row affected (0.05 sec)
+
+mysql> START TRANSACTION;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql>
+mysql> SELECT * FROM EMP;
++------------+-----------+------+------+--------+
+| FIRST_NAME | LAST_NAME | AGE  | SEX  | INCOME |
++------------+-----------+------+------+--------+
+| Krishna    | Sharma    |   20 | M    |   2000 |
+| Raj        | Kandukuri |   21 | M    |   7000 |
+| Ramya      | Ramapriya |   26 | F    |   5000 |
++------------+-----------+------+------+--------+
+3 rows in set (0.00 sec)
+
+mysql> UPDATE EMP SET AGE = AGE + 1;
+Query OK, 3 rows affected (0.01 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+mysql>
+mysql> SAVEPOINT samplesavepoint;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> INSERT INTO EMP values ('Mac', 'Mohan', 26, 'M', 2000);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> ROLLBACK TO SAVEPOINT samplesavepoint;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> COMMIT;
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> SELECT * FROM EMP;
++------------+-----------+------+------+--------+
+| FIRST_NAME | LAST_NAME | AGE  | SEX  | INCOME |
++------------+-----------+------+------+--------+
+| Krishna    | Sharma    |   21 | M    |   2000 |
+| Raj        | Kandukuri |   22 | M    |   7000 |
+| Ramya      | Ramapriya |   27 | F    |   5000 |
++------------+-----------+------+------+--------+
+3 rows in set (0.00 sec)

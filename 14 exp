@@ -1,0 +1,22 @@
+mysql> GRANT ALL ON mystudentdb.* TO john@localhost;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SHOW GRANTS FOR john@localhost;
++-------------------------------------------------------------------------------------------------------------+
+| Grants for john@localhost                                                                                   |
++-------------------------------------------------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO 'john'@'localhost'                                                   |
+| GRANT ALL PRIVILEGES ON `mystudentdb`.* TO 'john'@'localhost'                                               |
++-------------------------------------------------------------------------------------------------------------+
+2 rows in set (0.00 sec)
+
+mysql> REVOKE ALL, GRANT OPTION FROM john@localhost;
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> SHOW GRANTS FOR john@localhost;
++-------------------------------------------------------------------------------------------------------------+
+| Grants for john@localhost                                                                                   |
++-------------------------------------------------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO 'john'@'localhost'                                                    |
++-------------------------------------------------------------------------------------------------------------+
+1 row in set (0.00 sec)

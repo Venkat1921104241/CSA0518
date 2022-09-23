@@ -1,0 +1,12 @@
+mysql> CREATE FUNCTION hello (s CHAR(20))
+    -> RETURNS CHAR(50) DETERMINISTIC
+    ->        RETURN CONCAT('Hello, ',s,'!');
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SELECT hello('world');
++----------------+
+| hello('world') |
++----------------+
+| Hello, world!  |
++----------------+
+1 row in set (0.05 sec)
